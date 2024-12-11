@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  border: 1px solid pink;
+
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px black solid;
+  box-shadow: inset gray 0px 0px 60px -12px; 
+}
