@@ -14,7 +14,7 @@ for (i of grid) {
   app.appendChild(row)
 
   for (j of i) {
-    const box = document.createElement('div')
+    const box = document.createElement('button')
     box.setAttribute('class', 'box')
     row.appendChild(box)
     const color = get_color(4)
