@@ -19,6 +19,8 @@ for (i of grid) {
     row.appendChild(box)
     const color = get_color(4)
     box.style["background-color"] = `${color}`
+    box.addEventListener('click', () => console.log(`${color}`))
+    box.addEventListener('mouseover', () => console.log("hover"))
   }
 }
 
