@@ -19,3 +19,5 @@ Replicating a simplified version of the Destructo-O-Match game from Neopets.
 - I think I need to decide if I want to create box objects, whose properties I manipulate and use for game play. Right now, it feels like I'm trying to do something like a functional approach. Which I think can be done with this game. I'm just having a hard time sorting through the necessary steps (functional components) and their proper order.
 
 - I can find the surrounding boxes with the same color! But this function does not extend to each of those boxes to create a "path" of boxes with hover effects. That's the next task.
+
+- Controlling hover effects in both CSS and JS seemed to cause buggy behavior. It's hard to explain, but eventually I realized that I needed to apply the hover effects entirely from within JS.

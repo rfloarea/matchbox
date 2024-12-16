@@ -29,16 +29,13 @@ for (i of grid) {
     box.style["background-color"] = `${color}`
     box.addEventListener('click', () => console.log(`${color}`))
     box.addEventListener('mouseover', () => {
-      console.log("hover")
-      console.log('source box id: ', box.id)
       const box_id_array = find_adjacent_boxes(parseInt(box.id))
-      console.table(box_id_array)
       apply_hover_effect(box_id_array)
     })
-    // box.addEventListener('mouseout', () => {
-    //   find_adjacent_boxes(`${color}`, box.id)
-    //   remove_hover_effect(box)
-    // })
+    box.addEventListener('mouseout', () => {
+      const box_id_array = find_adjacent_boxes(parseInt(box.id))
+      remove_hover_effect(box_id_array)
+    })
   }
 }
 
@@ -66,6 +63,7 @@ function rand_color(max) {
 const find_adjacent_boxes = (source_id) => {
 
   const adjacent_boxes = [];
+  adjacent_boxes.push(source_id)
   const source_box_color = get_element_color(source_id)
     
   // left box
@@ -75,7 +73,6 @@ const find_adjacent_boxes = (source_id) => {
       adjacent_boxes.push(source_id - 1)
     }
   }
-  console.log('adjacent boxes with same color - 1: ', adjacent_boxes);
 
   // right box
   if (document.getElementById(source_id + 1)) {
@@ -84,7 +81,6 @@ const find_adjacent_boxes = (source_id) => {
       adjacent_boxes.push(source_id + 1)
     }
   }
-  console.log('adjacent boxes with same color - 2: ', adjacent_boxes);
   
   // top box
   if (document.getElementById(source_id - 7)) {
@@ -93,7 +89,6 @@ const find_adjacent_boxes = (source_id) => {
       adjacent_boxes.push(source_id - 7)
     }
   }
-  console.log('adjacent boxes with same color - 3: ', adjacent_boxes);
   
   // bottom box
   if (document.getElementById(source_id + 7)) {
@@ -102,17 +97,23 @@ const find_adjacent_boxes = (source_id) => {
       adjacent_boxes.push(source_id + 7)
     }
   }
-  console.log('adjacent boxes with same color - 4: ', adjacent_boxes);
   
   return adjacent_boxes
 }
 
-// takes an array of ids and apply hover effects
 function apply_hover_effect(array) {
   for (i of array) {
     console.log('apply hover effect to box: ', i)
     const element = document.getElementById(i)
     element.style["box-shadow"] = "none"
+  }
+}
+
+function remove_hover_effect(array) {
+  for (i of array) {
+    console.log('remove hover effect from box: ', i)
+    const element = document.getElementById(i)
+    element.style["box-shadow"] = "inset black 0px 0px 60px -12px"
   }
 }
 
@@ -122,8 +123,3 @@ const get_element_color = (id) => {
   const color = window.getComputedStyle(element).getPropertyValue('background-color')
   return color
 }
-
-// function remove_hover_effect(box) {
-//   console.log('remove hover effect from box: ', box.id)
-//   box.style["box-shadow"] = "inset black 0px 0px 60px -12px"
-// }

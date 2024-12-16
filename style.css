@@ -19,11 +19,3 @@
   box-shadow: inset black 0px 0px 60px -12px;
   cursor: pointer;
 }
-
-.box:hover {
-  box-shadow: none;
-}
-
-.box:active {
-  box-shadow: inset black 0px 0px 60px -12px;
-}
