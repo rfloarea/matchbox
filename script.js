@@ -31,8 +31,9 @@ for (i of grid) {
     box.addEventListener('mouseover', () => {
       console.log("hover")
       console.log('source box id: ', box.id)
-      find_adjacent_boxes(parseInt(box.id))
-      console.table(find_adjacent_boxes(parseInt(box.id)))
+      const box_id_array = find_adjacent_boxes(parseInt(box.id))
+      console.table(box_id_array)
+      apply_hover_effect(box_id_array, color)
     })
     // box.addEventListener('mouseout', () => {
     //   find_adjacent_boxes(`${color}`, box.id)
@@ -46,13 +47,17 @@ function get_color(max) {
 
   switch (random_num) {
     case 0:
-      return 'blue'
+      // blue
+      return 'rgb(0, 0, 255)'
     case 1:
-      return 'red'
+      // red
+      return 'rgb(255, 0, 0)'
     case 2:
-      return 'green'
+      // green
+      return 'rgb(0, 128, 0)'
     case 3:
-      return 'yellow'
+      // yellow
+      return 'rgb(255, 255, 0)'
   }
 }
 
@@ -86,13 +91,29 @@ const find_adjacent_boxes = (source_id) => {
   return adjacent_boxes
 }
 
-// // takes an array of ids and iterates over the grid to find matches to apply hover effects
-// function apply_hover_effect(box) {
-//   // apply hover effect to box with box_id
+// takes an array of ids and iterates over the grid to find matches to apply hover effects
+function apply_hover_effect(array, color) {
+  // apply hover effect to box with box_id
+  for (i of array) {
+    console.log(i)
+    const element = document.getElementById(i)
+    const i_color = window.getComputedStyle(element).getPropertyValue('background-color')
+    console.log(i_color)
+    console.log(color)
+    if (i_color == color) {
+      console.log('apply hover effect to box: ', i)
+      element.style["box-shadow"] = "none"
+    }
+  }
 
-//   console.log('apply hover effect to box: ', box.id)
-//   box.style["box-shadow"] = "none"
+}
 
+// function convert_color(color) {
+
+//   switch (color) {
+//     case "rgb(0, 0, 255)"
+//   }
+//   return rgb
 // }
 
 // function remove_hover_effect(box) {
