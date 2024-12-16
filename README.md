@@ -13,3 +13,7 @@ Replicating a simplified version of the Destructo-O-Match game from Neopets.
 2024-12-15
 
 - So. Many. Wrong. Turns. But very educational. I'm getting closer to figuring out how to search the grid for adjacent boxes with the same color, and then applying a hover effect on those elements. I can effectively do it to the _most_ immediate boxes, which was a difficult step for me to take. Now I think I need to do some recursive magic. We'll see!
+
+2024-12-16
+
+- I think I need to decide if I want to create box objects, whose properties I manipulate and use for game play. Right now, it feels like I'm trying to do something like a functional approach. Which I think can be done with this game. I'm just having a hard time sorting through the necessary steps (functional components) and their proper order.
