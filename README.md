@@ -17,3 +17,5 @@ Replicating a simplified version of the Destructo-O-Match game from Neopets.
 2024-12-16
 
 - I think I need to decide if I want to create box objects, whose properties I manipulate and use for game play. Right now, it feels like I'm trying to do something like a functional approach. Which I think can be done with this game. I'm just having a hard time sorting through the necessary steps (functional components) and their proper order.
+
+- I can find the surrounding boxes with the same color! But this function does not extend to each of those boxes to create a "path" of boxes with hover effects. That's the next task.
