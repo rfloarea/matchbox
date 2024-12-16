@@ -30,24 +30,14 @@ for (i of grid) {
     box.addEventListener('click', () => console.log(`${color}`))
     box.addEventListener('mouseover', () => {
       console.log("hover")
-      // recursively scan the surrounding blocks for the same color
-      // we can check the boxes using math!
-      // find the box with this_box_id = this_box_id - 1 and this_box_id = this_box_id + 1 
-        // that gives us the boxes left and right (unless at the end) 
-      // find the box with this_box_id = this_box_id - row.length and this_box_id = this_box_id + row.length 
-        // that gives us the boxes above and below
-      // this process will not work for some edge case boxes
-        // each corner has a special case
-        // the top and bottom rows have special cases
-      for (i of grid) {
-        for (j of i) {
-          // if the block's background-color = background-color of mousover
-
-          // apply hover effect
-        }
-      }
-      // if found, apply hover effect
+      console.log('source box id: ', box.id)
+      find_adjacent_boxes(parseInt(box.id))
+      console.table(find_adjacent_boxes(parseInt(box.id)))
     })
+    // box.addEventListener('mouseout', () => {
+    //   find_adjacent_boxes(`${color}`, box.id)
+    //   remove_hover_effect(box)
+    // })
   }
 }
 
@@ -65,3 +55,47 @@ function get_color(max) {
       return 'yellow'
   }
 }
+
+// build an array of box ids that share a side with our source box
+const find_adjacent_boxes = (source_id) => {
+  const adjacent_boxes = [];
+  // left box
+  if (document.getElementById(source_id - 1)) {
+    adjacent_boxes.push(source_id - 1)
+  }
+  console.log('adjacent boxes 1 ', adjacent_boxes);
+
+  // right box
+  if (document.getElementById(source_id + 1)) {
+    adjacent_boxes.push(source_id + 1)
+  }
+  console.log('adjacent boxes 2 ', adjacent_boxes);
+  
+  // top box
+  if (document.getElementById(source_id - 7)) {
+    adjacent_boxes.push(source_id - 7)
+  }
+  console.log('adjacent boxes 3 ', adjacent_boxes);
+  
+  // bottom box
+  if (document.getElementById(source_id + 7)) {
+    adjacent_boxes.push(source_id + 7)
+  }
+  console.log('adjacent boxes 4 ', adjacent_boxes);
+  
+  return adjacent_boxes
+}
+
+// // takes an array of ids and iterates over the grid to find matches to apply hover effects
+// function apply_hover_effect(box) {
+//   // apply hover effect to box with box_id
+
+//   console.log('apply hover effect to box: ', box.id)
+//   box.style["box-shadow"] = "none"
+
+// }
+
+// function remove_hover_effect(box) {
+//   console.log('remove hover effect from box: ', box.id)
+//   box.style["box-shadow"] = "inset black 0px 0px 60px -12px"
+// }
