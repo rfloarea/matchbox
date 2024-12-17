@@ -60,8 +60,8 @@ function rand_color(max) {
 
 // TODO:
   // - create checks for edge cases
+  // - find the adjacent boxes of each adjacent box, if it has not been found already
 const find_adjacent_boxes = (source_id) => {
-
   const adjacent_boxes = [];
   adjacent_boxes.push(source_id)
   const source_box_color = get_element_color(source_id)
